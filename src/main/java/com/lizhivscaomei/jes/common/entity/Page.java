@@ -1,7 +1,7 @@
 package com.lizhivscaomei.jes.common.entity;
 
 public class Page {
-    private int currentPage,;
+    private int currentPage;
     private int pageSize;
 
     public int getCurrentPage() {
