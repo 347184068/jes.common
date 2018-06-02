@@ -48,7 +48,7 @@ public abstract class TreeViewService<T> {
      */
     public TreeVo getTreeNodeAT(String id) {
         for (TreeVo treeNode : treeVoList) {
-            if (StringUtils.isNotEmpty(treeNode.getId())&&treeNode.getId().equals(id))
+            if (id.equals(treeNode.getId()))
                 return treeNode;
         }
         return null;
@@ -62,9 +62,12 @@ public abstract class TreeViewService<T> {
      */
     public TreeVo convertToTree() {
         for (TreeVo treeNode : treeVoList) {
-            if (!treeNode.getPid().equals(rootId)) {
-                TreeVo t = this.getTreeNodeAT(treeNode.getPid());
-                t.getNodes().add(treeNode);
+            //忽略根节点
+            if (!rootId.equals(treeNode.getId())) {
+                //获取父节点
+                TreeVo parent = this.getTreeNodeAT(treeNode.getPid());
+                //加入父节点的孩子
+                parent.getNodes().add(treeNode);
             }
         }
         return this.getRoot();
