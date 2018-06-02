@@ -66,8 +66,10 @@ public abstract class TreeViewService<T> {
             if (!rootId.equals(treeNode.getId())) {
                 //获取父节点
                 TreeVo parent = this.getTreeNodeAT(treeNode.getPid());
-                //加入父节点的孩子
-                parent.getNodes().add(treeNode);
+                if(parent!=null){
+                    //加入父节点的孩子
+                    parent.getNodes().add(treeNode);
+                }
             }
         }
         return this.getRoot();
