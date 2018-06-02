@@ -1,5 +1,6 @@
 package com.lizhivscaomei.jes.common.view.tree;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ public class TreeVo {
     private String text;//文本
     private String icon;//图标
     private String href;//路径
-    private List<TreeVo> nodes;//子节点
+    private List<TreeVo> nodes=new ArrayList<TreeVo>();//子节点
 
     public String getId() {
         return id;
