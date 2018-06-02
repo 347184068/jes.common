@@ -1,5 +1,7 @@
 package com.lizhivscaomei.jes.common.view.tree;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +48,7 @@ public abstract class TreeViewService<T> {
      */
     public TreeVo getTreeNodeAT(String id) {
         for (TreeVo treeNode : treeVoList) {
-            if (treeNode.getId().equals(id))
+            if (StringUtils.isNotEmpty(treeNode.getId())&&treeNode.getId().equals(id))
                 return treeNode;
         }
         return null;
