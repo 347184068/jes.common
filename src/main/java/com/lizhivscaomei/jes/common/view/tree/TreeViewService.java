@@ -48,7 +48,7 @@ public abstract class TreeViewService<T> {
      */
     public TreeVo getTreeNodeAT(String id) {
         for (TreeVo treeNode : treeVoList) {
-            if (id.equals(treeNode.getId()))
+            if (StringUtils.isNotEmpty(id)&&id.equals(treeNode.getId()))
                 return treeNode;
         }
         return null;
